@@ -3,7 +3,7 @@ package synapse.msgs;
 
 import "header.proto";
 
-message Fsm {
+message Status {
 	enum Mode {
 		UNKNOWN_MODE=0;
 		MANUAL=1;
@@ -19,4 +19,9 @@ message Fsm {
 	Header header = 1;
 	Mode mode = 2;
 	Armed armed = 3;
+	bool safe = 4;
+	bool fuel_low = 5;
+	bool fuel_critical = 6;
+	bool control_timeout = 7;
+	string feedback = 8;
 }

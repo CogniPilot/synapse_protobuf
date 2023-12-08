@@ -5,7 +5,6 @@ set(PROTO_FILES
     bezier_curve.proto
     bezier_trajectory.proto
     can.proto
-    fsm.proto
     header.proto
     imu.proto
     joy.proto
@@ -21,6 +20,7 @@ set(PROTO_FILES
     quaternion.proto
     safety.proto
     sim_clock.proto
+    status.proto
     time.proto
     twist.proto
     twist_with_covariance.proto

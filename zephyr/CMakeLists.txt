@@ -25,7 +25,7 @@ get_filename_component(buildDirRelFilePath "${CMAKE_CURRENT_BINARY_DIR}/.."
 
 # we need to be able to include generated header files
 zephyr_include_directories(
-  ${buildDirRelFilePath}
+  ${CMAKE_CURRENT_BINARY_DIR}/..
 )
 
 # necessary for module to calll nanopb_generate
