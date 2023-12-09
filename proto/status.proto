@@ -54,4 +54,6 @@ message Status {
 	Safety safety = 6;
 	Synapse synapse = 7;
 	string status_message = 8;
+	float fuel_percentage = 9;
+	float power = 10;
 }
