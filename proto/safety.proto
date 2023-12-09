@@ -5,9 +5,9 @@ import "header.proto";
 
 message Safety {
 	enum Status {
-		UNKNOWN=0;
-		SAFE=1;
-		UNSAFE=2;
+		SAFETY_UNKNOWN=0;
+		SAFETY_SAFE=1;
+		SAFETY_UNSAFE=2;
 	}
 
 	Header header = 1;
