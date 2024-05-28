@@ -8,12 +8,9 @@ set(SYNAPSE_PROTOBUF_DIR ${ZEPHYR_CURRENT_MODULE_DIR})
 set(PROTO_DIR ${SYNAPSE_PROTOBUF_DIR}/proto)
  
 file(GLOB OPTION_FILES "${PROTO_DIR}/*.option")
-
-message(STATUS "files:${PROTO_FILES}")
    
 set(NANOPB_IMPORT_DIRS "${PROTO_DIR}")
 set(NANOPB_OPTIONS "-I${CMAKE_SOURCE_DIR}")
-message(STATUS "srcs:${PROTO_SOURCES}")
 
 zephyr_library_named(synapse_protobuf)
 
