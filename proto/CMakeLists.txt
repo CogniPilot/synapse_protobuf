@@ -17,6 +17,7 @@ set(PROTO_FILES
     point.proto
     pose.proto
     pose_with_covariance.proto
+    pwm.proto
     quaternion.proto
     safety.proto
     sim_clock.proto
