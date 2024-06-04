@@ -4,6 +4,7 @@ package synapse.msgs;
 import "header.proto";
 
 message Status {
+
 	enum Arming {
 		ARMING_UNKNOWN=0;
 		ARMING_DISARMED=1;
@@ -25,12 +26,34 @@ message Status {
 		JOY_NOMINAL=3;
 	}
 
+	enum CommandSource {
+		COMMAND_SOURCE_UNKNOWN=0;
+		COMMAND_SOURCE_ONBOARD=1;
+		COMMAND_SOURCE_OFFBOARD=2;
+		COMMAND_SOURCE_RESERVED_0=3;
+		COMMAND_SOURCE_RESERVED_1=4;
+		COMMAND_SOURCE_RESERVED_2=5;
+		COMMAND_SOURCE_RESERVED_3=6;
+		COMMAND_SOURCE_RESERVED_4=7;
+	}
+
 	enum Mode {
 		MODE_UNKNOWN=0;
-		MODE_MANUAL=1;
-		MODE_AUTO=2;
-		MODE_CMD_VEL=3;
-		MODE_CALIBRATION=4;
+		MODE_CALIBRATION=1;
+		MODE_ANGULAR_VELOCTIY=2;
+		MODE_POSITION=3;
+		MODE_VELOCITY=4;
+		MODE_ACCELERATION=5;
+		MODE_BEZIER=6;
+		MODE_RESERVED_0=7;
+		MODE_RESERVED_1=8;
+		MODE_RESERVED_2=9;
+		MODE_RESERVED_3=10;
+		MODE_RESERVED_4=11;
+		MODE_RESERVED_5=12;
+		MODE_RESERVED_6=13;
+		MODE_RESERVED_7=14;
+		MODE_RESERVED_8=15;
 	}
 
 	enum Safety {
@@ -50,12 +73,13 @@ message Status {
 	Arming arming = 2;
 	Joy joy = 3;
 	Fuel fuel = 4;
-	Mode mode = 5;
-	Safety safety = 6;
-	Synapse synapse = 7;
-	string status_message = 8;
-	uint32 fuel_percentage = 9;
-	float power = 10;
-	uint32 request_seq = 11;
-	bool request_rejected = 12;
+	CommandSource command_source = 5;
+	Mode mode = 6;
+	Safety safety = 7;
+	Synapse synapse = 8;
+	string status_message = 9;
+	uint32 fuel_percentage = 10;
+	float power = 11;
+	uint32 request_seq = 12;
+	bool request_rejected = 13;
 }
