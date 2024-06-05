@@ -26,25 +26,40 @@ message Status {
 		JOY_NOMINAL=3;
 	}
 
-	// what is the command source
-	enum CommandSource {
-		COMMAND_SOURCE_UNKNOWN=0;
-		COMMAND_SOURCE_TOPIC=1; // controller listens to topic
-		COMMAND_SOURCE_JOY_RADIO_CONTROL=2; // joy over radio
-		COMMAND_SOURCE_JOY_ETHERNET=3; // joy over ethernet
-		COMMAND_SOURCE_JOY_CAN=4; // joy over can bus
-		COMMAND_SOURCE_RESERVED_2=5;
-		COMMAND_SOURCE_RESERVED_3=6;
-		COMMAND_SOURCE_RESERVED_4=7;
+	// What is the joy source (which can arm, change modes etc.
+	// and provide stick/button inputs)?
+	enum JoySource {
+		JOY_SOURCE_UNKNOWN=0;
+		JOY_SOURCE_RADIO_CONTROL=1;
+		JOY_SOURCE_ETHERNET=2;
+		JOY_SOURCE_CAN=3;
+		JOY_SOURCE_RESERVED_0=4;
+		JOY_SOURCE_RESERVED_1=5;
+		JOY_SOURCE_RESERVED_2=6;
+		JOY_SOURCE_RESERVED_3=7;
 	}
 
-	// control mode is further subdivided by command source
-	// if command source is joy, source of joy is further
+	// What is the topic source?
+	// if it is joy, it follows the buttons/axis provided
+	// by joy source
+	enum TopicSource {
+		TOPIC_SOURCE_UNKNOWN=0;
+		TOPIC_SOURCE_JOY=1;
+		TOPIC_SOURCE_LOCAL=2;
+		TOPIC_SOURCE_ETHERNET=3;
+		TOPIC_SOURCE_CAN=4;
+		TOPIC_SOURCE_RESERVED_0=5;
+		TOPIC_SOURCE_RESERVED_1=6;
+		TOPIC_SOURCE_RESERVED_2=7;
+	}
+
+	// control mode is further subdivided by topic source
+	// if topic source is joy, source of joy is further
 	// subdivided by joy source
 	enum Mode {
 		MODE_UNKNOWN=0;
 		MODE_CALIBRATION=1;
-		MODE_MANUAL=2; // raw actuator control
+		MODE_ACTUATORS=2; // raw actuator control
 		MODE_ATTITUDE_RATE=3; // raw throttle, att. rate feedback
 		MODE_ATTITUDE=4; // raw throttle, att. feeback
 		MODE_ALTITUDE=5; // throttle controls altitude, att. feedback
