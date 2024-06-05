@@ -26,28 +26,32 @@ message Status {
 		JOY_NOMINAL=3;
 	}
 
+	// what is the command source
 	enum CommandSource {
 		COMMAND_SOURCE_UNKNOWN=0;
-		COMMAND_SOURCE_ONBOARD=1;
-		COMMAND_SOURCE_OFFBOARD=2;
-		COMMAND_SOURCE_RESERVED_0=3;
-		COMMAND_SOURCE_RESERVED_1=4;
+		COMMAND_SOURCE_TOPIC=1; // controller listens to topic
+		COMMAND_SOURCE_JOY_RADIO_CONTROL=2; // joy over radio
+		COMMAND_SOURCE_JOY_ETHERNET=3; // joy over ethernet
+		COMMAND_SOURCE_JOY_CAN=4; // joy over can bus
 		COMMAND_SOURCE_RESERVED_2=5;
 		COMMAND_SOURCE_RESERVED_3=6;
 		COMMAND_SOURCE_RESERVED_4=7;
 	}
 
+	// control mode is further subdivided by command source
+	// if command source is joy, source of joy is further
+	// subdivided by joy source
 	enum Mode {
 		MODE_UNKNOWN=0;
 		MODE_CALIBRATION=1;
-		MODE_MANUAL=2;
-		MODE_ATTITUDE_RATE=3;
-		MODE_ATTITUDE=4;
-		MODE_ALTITUDE=5;
-		MODE_POSITION=6;
-		MODE_VELOCITY=7;
-		MODE_ACCELERATION=8;
-		MODE_BEZIER=9;
+		MODE_MANUAL=2; // raw actuator control
+		MODE_ATTITUDE_RATE=3; // raw throttle, att. rate feedback
+		MODE_ATTITUDE=4; // raw throttle, att. feeback
+		MODE_ALTITUDE=5; // throttle controls altitude, att. feedback
+		MODE_POSITION=6; // pos. feedback, sending waypoint
+		MODE_VELOCITY=7; // vel. feedback (cmd. vel) normal flight
+		MODE_ACCELERATION=8; // command acceleration
+		MODE_BEZIER=9; // send bezier trajectory to follow
 		MODE_RESERVED_0=10;
 		MODE_RESERVED_1=11;
 		MODE_RESERVED_2=12;
