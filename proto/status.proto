@@ -92,13 +92,14 @@ message Status {
 	Arming arming = 2;
 	Joy joy = 3;
 	Fuel fuel = 4;
-	CommandSource command_source = 5;
-	Mode mode = 6;
-	Safety safety = 7;
-	Synapse synapse = 8;
-	string status_message = 9;
-	uint32 fuel_percentage = 10;
-	float power = 11;
-	uint32 request_seq = 12;
-	bool request_rejected = 13;
+	JoySource joy_source = 5;
+	TopicSource topic_source = 6;
+	Mode mode = 7;
+	Safety safety = 8;
+	Synapse synapse = 9;
+	string status_message = 10;
+	uint32 fuel_percentage = 11;
+	float power = 12;
+	uint32 request_seq = 13;
+	bool request_rejected = 14;
 }
