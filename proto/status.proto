@@ -19,32 +19,31 @@ message Status {
 		FUEL_OVER_CAPACITY=4;
 	}
 
-	enum Joy {
-		JOY_UNKNOWN=0;
-		JOY_DISABLED=1;
-		JOY_LOSS=2;
-		JOY_NOMINAL=3;
+	enum LinkStatus {
+		STATUS_UNKNOWN=0;
+		STATUS_DISABLED=1;
+		STATUS_LOSS=2;
+		STATUS_NOMINAL=3;
 	}
 
-	// What is the joy source (which can arm, change modes etc.
-	// and provide stick/button inputs)?
-	enum JoySource {
-		JOY_SOURCE_UNKNOWN=0;
-		JOY_SOURCE_RADIO_CONTROL=1;
-		JOY_SOURCE_ETHERNET=2;
-		JOY_SOURCE_CAN=3;
-		JOY_SOURCE_RESERVED_0=4;
-		JOY_SOURCE_RESERVED_1=5;
-		JOY_SOURCE_RESERVED_2=6;
-		JOY_SOURCE_RESERVED_3=7;
+	// What is the input source (which can arm, change modes etc.)?
+	enum InputSource {
+		INPUT_SOURCE_UNKNOWN=0;
+		INPUT_SOURCE_RADIO_CONTROL=1;
+		INPUT_SOURCE_ETHERNET=2;
+		INPUT_SOURCE_CAN=3;
+		INPUT_SOURCE_RESERVED_0=4;
+		INPUT_SOURCE_RESERVED_1=5;
+		INPUT_SOURCE_RESERVED_2=6;
+		INPUT_SOURCE_RESERVED_3=7;
 	}
 
 	// What is the topic source?
-	// if it is joy, it follows the buttons/axis provided
-	// by joy source
+	// if it is input, it follows the input source
+	// mode command source
 	enum TopicSource {
 		TOPIC_SOURCE_UNKNOWN=0;
-		TOPIC_SOURCE_JOY=1;
+		TOPIC_SOURCE_INPUT=1;
 		TOPIC_SOURCE_LOCAL=2;
 		TOPIC_SOURCE_ETHERNET=3;
 		TOPIC_SOURCE_CAN=4;
@@ -54,8 +53,8 @@ message Status {
 	}
 
 	// control mode is further subdivided by topic source
-	// if topic source is joy, source of joy is further
-	// subdivided by joy source
+	// if topic source is input, input is further
+	// subdivided by input source
 	enum Mode {
 		MODE_UNKNOWN=0;
 		MODE_CALIBRATION=1;
@@ -81,25 +80,19 @@ message Status {
 		SAFETY_UNSAFE=2;
 	}
 
-	enum Synapse {
-		SYNAPSE_UNKNOWN=0;
-		SYNAPSE_DISABLED=1;
-		SYNAPSE_LOSS=2;
-		SYNAPSE_NOMINAL=3;
-        }
-
 	Header header = 1;
 	Arming arming = 2;
-	Joy joy = 3;
-	Fuel fuel = 4;
-	JoySource joy_source = 5;
-	TopicSource topic_source = 6;
-	Mode mode = 7;
-	Safety safety = 8;
-	Synapse synapse = 9;
-	string status_message = 10;
-	uint32 fuel_percentage = 11;
-	float power = 12;
-	uint32 request_seq = 13;
-	bool request_rejected = 14;
+	string status_message = 3;
+	LinkStatus input_status = 4;
+	InputSource input_source = 5;
+	LinkStatus topic_status = 6;
+	TopicSource topic_source = 7;
+	LinkStatus electrode_status = 8;
+	Mode mode = 9;
+	Safety safety = 10;
+	Fuel fuel = 11;
+	uint32 fuel_percentage = 12;
+	float power = 13;
+	uint32 request_seq = 14;
+	bool request_rejected = 15;
 }

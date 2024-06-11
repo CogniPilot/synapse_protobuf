@@ -7,7 +7,7 @@ set(PROTO_FILES
     can.proto
     header.proto
     imu.proto
-    joy.proto
+    input.proto
     led.proto
     led_array.proto
     magnetic_field.proto

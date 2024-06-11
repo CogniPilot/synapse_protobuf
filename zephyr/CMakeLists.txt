@@ -22,28 +22,28 @@ set(PROTO_FILES
     ${PROTO_DIR}/bezier_curve.proto
     ${PROTO_DIR}/bezier_trajectory.proto
     ${PROTO_DIR}/can.proto
-    ${PROTO_DIR}/time.proto
     ${PROTO_DIR}/header.proto
-    ${PROTO_DIR}/vector3.proto
-    ${PROTO_DIR}/quaternion.proto
     ${PROTO_DIR}/imu.proto
-    ${PROTO_DIR}/joy.proto
+    ${PROTO_DIR}/input.proto
     ${PROTO_DIR}/led.proto
     ${PROTO_DIR}/led_array.proto
     ${PROTO_DIR}/magnetic_field.proto
     ${PROTO_DIR}/nav_sat_fix.proto
     ${PROTO_DIR}/nav_sat_status.proto
+    ${PROTO_DIR}/odometry.proto
     ${PROTO_DIR}/point.proto
     ${PROTO_DIR}/pose.proto
     ${PROTO_DIR}/pose_with_covariance.proto
     ${PROTO_DIR}/pwm.proto
+    ${PROTO_DIR}/quaternion.proto
     ${PROTO_DIR}/safety.proto
     ${PROTO_DIR}/sim_clock.proto
     ${PROTO_DIR}/status.proto
+    ${PROTO_DIR}/time.proto
     ${PROTO_DIR}/twist.proto
     ${PROTO_DIR}/twist_with_covariance.proto
+    ${PROTO_DIR}/vector3.proto
     ${PROTO_DIR}/wheel_odometry.proto
-    ${PROTO_DIR}/odometry.proto
     )
 
 foreach(FILE ${PROTO_FILES})

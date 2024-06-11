@@ -1,0 +1,6 @@
+syntax = "proto3";
+package synapse.msgs;
+
+message Input {
+	repeated float channel = 1;
+}
