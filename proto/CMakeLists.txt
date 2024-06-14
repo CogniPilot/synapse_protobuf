@@ -4,6 +4,7 @@ set(PROTO_FILES
     battery_state.proto
     bezier_curve.proto
     bezier_trajectory.proto
+    bit32_flag.proto
     can.proto
     header.proto
     imu.proto
