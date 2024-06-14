@@ -21,6 +21,7 @@ set(PROTO_FILES
     ${PROTO_DIR}/battery_state.proto
     ${PROTO_DIR}/bezier_curve.proto
     ${PROTO_DIR}/bezier_trajectory.proto
+    ${PROTO_DIR}/bit32_flag.proto
     ${PROTO_DIR}/can.proto
     ${PROTO_DIR}/header.proto
     ${PROTO_DIR}/imu.proto
