@@ -16,6 +16,7 @@ zephyr_library_named(synapse_protobuf)
 
 # sorted in dependency order
 set(PROTO_FILES
+    ${PROTO_DIR}/frame.proto
     ${PROTO_DIR}/actuators.proto
     ${PROTO_DIR}/altimeter.proto
     ${PROTO_DIR}/battery_state.proto

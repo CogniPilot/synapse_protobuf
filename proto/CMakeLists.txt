@@ -1,4 +1,5 @@
 set(PROTO_FILES
+    frame.proto
     actuators.proto
     altimeter.proto
     battery_state.proto
